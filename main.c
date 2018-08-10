@@ -55,11 +55,68 @@
 #include "nrf_log_ctrl.h"
 #include "nrf_log.h"
 #include "nrf_log_default_backends.h"
+#include "nrf_uart.h"
+#include "app_uart.h"
+#include "pca10056.h"
 
 #include "thread_coap_utils.h"
 #include "thread_utils.h"
 
 #include <openthread/openthread.h>
+
+/* When UART is used for communication with the host do not use flow control.*/
+#define UART_HWFC APP_UART_FLOW_CONTROL_DISABLED
+#define UART_TX_BUF_SIZE 256                         /**< UART TX buffer size. */
+#define UART_RX_BUF_SIZE 256                         /**< UART RX buffer size. */
+
+/********************
+  UART parsing
+*********************/
+
+void uart_error_handle(app_uart_evt_t * p_event)
+{
+    if (p_event->evt_type == APP_UART_COMMUNICATION_ERROR)
+    {
+        APP_ERROR_HANDLER(p_event->data.error_communication);
+    }
+    else if (p_event->evt_type == APP_UART_FIFO_ERROR)
+    {
+        APP_ERROR_HANDLER(p_event->data.error_code);
+    }
+}
+
+void uart_init(void)
+{
+   uint32_t err_code;
+   
+   const app_uart_comm_params_t comm_params =
+      {
+          RX_PIN_NUMBER,
+          TX_PIN_NUMBER,
+          RTS_PIN_NUMBER,
+          CTS_PIN_NUMBER,
+          UART_HWFC,
+          false,
+          NRF_UART_BAUDRATE_115200
+      };
+
+    APP_UART_FIFO_INIT(&comm_params,
+                         UART_RX_BUF_SIZE,
+                         UART_TX_BUF_SIZE,
+                         uart_error_handle,
+                         APP_IRQ_PRIORITY_LOWEST,
+                         err_code);
+
+    APP_ERROR_CHECK(err_code);
+}
+
+
+void thread_uart_callback(uint8_t data)
+{
+  app_uart_put(data);
+}
+
+
 
 /***************************************************************************************************
  * @section Buttons
@@ -130,18 +187,6 @@ static void log_init(void)
 }
 
 
-/**@brief Function for initializing the Thread Board Support Package.
- */
-static void thread_bsp_init(void)
-{
-    uint32_t error_code = bsp_init(BSP_INIT_LED | BSP_INIT_BUTTONS, bsp_event_handler);
-    APP_ERROR_CHECK(error_code);
-
-    error_code = bsp_thread_init(thread_ot_instance_get());
-    APP_ERROR_CHECK(error_code);
-}
-
-
 /**@brief Function for initializing the Thread Stack.
  */
 static void thread_instance_init(void)
@@ -183,6 +228,7 @@ int main(int argc, char * argv[])
 {
     log_init();
     timer_init();
+    uart_init();
 
     // Initialize Thread CoAP utils.
     thread_coap_utils_led_timer_init();
@@ -192,7 +238,6 @@ int main(int argc, char * argv[])
     // Initialize the Thread stack.
     thread_instance_init();
     thread_coap_init();
-    thread_bsp_init();
 
     while (true)
     {
