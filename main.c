@@ -200,7 +200,7 @@ static void thread_instance_init(void)
     };
 
     thread_init(&thread_configuration);
-    thread_cli_init();
+    //thread_cli_init();
     thread_state_changed_callback_set(thread_state_changed_callback);
 }
 
@@ -217,7 +217,7 @@ static void thread_coap_init(void)
         .configurable_led_blinking_enabled = false,
     };
 
-    thread_coap_utils_init(&thread_coap_configuration);
+    thread_coap_utils_init(&thread_coap_configuration, thread_uart_callback);
 }
 
 /***************************************************************************************************

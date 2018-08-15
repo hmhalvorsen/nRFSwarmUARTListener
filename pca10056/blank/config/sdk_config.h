@@ -46,7 +46,16 @@
 #ifdef USE_APP_CONFIG
 #include "app_config.h"
 #endif
+
 // <h> nRF_Drivers 
+
+//==========================================================
+// <q> PERIPHERAL_RESOURCE_SHARING_ENABLED  - nrf_drv_common - Peripheral drivers common module
+ 
+
+#ifndef PERIPHERAL_RESOURCE_SHARING_ENABLED
+#define PERIPHERAL_RESOURCE_SHARING_ENABLED 0
+#endif
 
 // <e> UART_ENABLED - nrf_drv_uart - UART/UARTE peripheral driver
 //==========================================================
@@ -128,7 +137,7 @@
 // <e> UART0_ENABLED - Enable UART0 instance
 //==========================================================
 #ifndef UART0_ENABLED
-#define UART0_ENABLED 1
+#define UART0_ENABLED 0
 #endif
 // <q> UART0_CONFIG_USE_EASY_DMA  - Default setting for using EasyDMA
  
@@ -142,7 +151,7 @@
 // <e> UART1_ENABLED - Enable UART1 instance
 //==========================================================
 #ifndef UART1_ENABLED
-#define UART1_ENABLED 0
+#define UART1_ENABLED 1
 #endif
 // <q> UART1_CONFIG_USE_EASY_DMA  - Default setting for using EasyDMA
  
@@ -167,7 +176,7 @@
 // <0=> 0 
 
 #ifndef APP_UART_DRIVER_INSTANCE
-#define APP_UART_DRIVER_INSTANCE 0
+#define APP_UART_DRIVER_INSTANCE 1
 #endif
 
 
@@ -407,6 +416,13 @@
 
 #ifndef NRF_BALLOC_CONFIG_DATA_TRASHING_CHECK_ENABLED
 #define NRF_BALLOC_CONFIG_DATA_TRASHING_CHECK_ENABLED 0
+#endif
+
+// <q> APP_FIFO_ENABLED  - app_fifo - Software FIFO implementation
+ 
+
+#ifndef APP_FIFO_ENABLED
+#define APP_FIFO_ENABLED 1
 #endif
 
 // </e>

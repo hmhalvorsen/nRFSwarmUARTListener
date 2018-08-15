@@ -16,6 +16,7 @@
   <ProjectSessionItem path="thread_simple_coap_server_pca10056;thread_simple_coap_server_pca10056;Application"/>
   <ProjectSessionItem path="thread_simple_coap_server_pca10056;thread_simple_coap_server_pca10056;nRF_Drivers"/>
   <ProjectSessionItem path="thread_simple_coap_server_pca10056;thread_simple_coap_server_pca10056;nRF_Libraries"/>
+  <ProjectSessionItem path="thread_simple_coap_server_pca10056;thread_simple_coap_server_pca10056;nRF_Log"/>
  </Project>
  <Register1/>
  <Register2/>
@@ -37,13 +38,11 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="18" y="67" useTextEdit="1" useBinaryEdit="0" left="0" path="../config/sdk_config.h" debugPath="../config/sdk_config.h" selected="1" top="28" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="19" y="143" useTextEdit="1" useBinaryEdit="0" left="0" path="C:/ThreadSDK/components/libraries/uart/app_uart_fifo.c" debugPath="C:/ThreadSDK/components/libraries/uart/app_uart_fifo.c" selected="0" top="93" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="255" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../main.c" debugPath="../../../main.c" selected="0" top="219" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="84" useTextEdit="1" useBinaryEdit="0" left="0" path="C:/ThreadSDK/components/libraries/uart/app_uart.c" debugPath="C:/ThreadSDK/components/libraries/uart/app_uart.c" selected="0" top="19" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="377" useTextEdit="1" useBinaryEdit="0" left="0" path="C:/ThreadSDK/components/drivers_nrf/uart/nrf_drv_uart.h" debugPath="C:/ThreadSDK/components/drivers_nrf/uart/nrf_drv_uart.h" selected="0" top="350" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="81" useTextEdit="1" useBinaryEdit="0" left="0" path="C:/ThreadSDK/components/libraries/fifo/app_fifo.h" debugPath="C:/ThreadSDK/components/libraries/fifo/app_fifo.h" selected="0" top="54" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="0" useTextEdit="1" useBinaryEdit="0" left="0" path="C:/ThreadSDK/components/drivers_nrf/uart/nrf_drv_uart.c" debugPath="C:/ThreadSDK/components/drivers_nrf/uart/nrf_drv_uart.c" selected="0" top="27" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="17" y="66" useTextEdit="1" useBinaryEdit="0" left="0" path="../config/sdk_config.h" debugPath="../config/sdk_config.h" selected="1" top="21" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="54" y="137" useTextEdit="1" useBinaryEdit="0" left="0" path="../../../main.c" debugPath="../../../main.c" selected="0" top="45" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="23" y="110" useTextEdit="1" useBinaryEdit="0" left="0" path="C:/SDKThread/components/libraries/uart/app_uart_fifo.c" debugPath="C:/SDKThread/components/libraries/uart/app_uart_fifo.c" selected="0" top="72" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="40" useTextEdit="1" useBinaryEdit="0" left="0" path="C:/SDKThread/components/libraries/fifo/app_fifo.c" debugPath="C:/SDKThread/components/libraries/fifo/app_fifo.c" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="52" useTextEdit="1" useBinaryEdit="0" left="0" path="C:/SDKThread/components/libraries/experimental_log/src/nrf_log_default_backends.c" debugPath="C:/SDKThread/components/libraries/experimental_log/src/nrf_log_default_backends.c" selected="0" top="0" codecName="Default"/>
  </Files>
  <ARMCrossStudioWindow activeProject="thread_simple_coap_server_pca10056" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" debugSearchFileMap="" fileDialogInitialDirectory="" debugSearchPath="" autoConnectCapabilities="3199"/>
 </session>
